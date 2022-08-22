@@ -4,6 +4,6 @@ using UnityEngine;
 
 public interface ICombat
 {
-    void TakeDamage(int damage);
-    void Attack();
+    public void TakeDamage(int damage);
+    public void Attack();
 }
