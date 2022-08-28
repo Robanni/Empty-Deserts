@@ -39,4 +39,6 @@ public class PlayerCombat : MonoBehaviour, ICombat
 
         if (_health < 0) _health = 0;
     }
+
+    public int Health { get { return _health; } }
 }
