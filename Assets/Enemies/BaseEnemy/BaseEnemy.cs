@@ -6,8 +6,8 @@ public class BaseEnemy : MonoBehaviour, ICombat
 {
     protected Transform _enemyTarget;
     protected int _health = 1;
-    [SerializeField]protected float _speed = 10f;
-    protected float _attackRadius = 2;
+    [SerializeField] protected float _speed = 10f;
+    [SerializeField] protected float _attackRadius = 1;
     protected int _attackDamage = 1;
 
     public Transform AttackPoint;
@@ -15,11 +15,14 @@ public class BaseEnemy : MonoBehaviour, ICombat
 
     private void Update()
     {
-        if ((_enemyTarget.position - transform.position).magnitude < _attackRadius) Attack();//ищет модуль расстояния до игрока 
+         Attack();
     }
 
     public void Attack()
     {
+        if (_enemyTarget.Equals(null)) return;
+        if ((_enemyTarget.position - transform.position).magnitude > _attackRadius) return;//ищет модуль расстояния до игрока 
+
         Collider2D[] attackedEntities = Physics2D.OverlapCircleAll(AttackPoint.position, _attackRadius, PlayerLayerMask);
 
         foreach (Collider2D attackedEntity in attackedEntities)
@@ -36,6 +39,7 @@ public class BaseEnemy : MonoBehaviour, ICombat
 
     protected void EnemyMovement()
     {
+        if (_enemyTarget.Equals(null)) return;
         Vector2 targetDiraction = (_enemyTarget.position - transform.position).normalized;
         GetComponent<Rigidbody2D>().velocity = targetDiraction * _speed * Time.deltaTime;
     }

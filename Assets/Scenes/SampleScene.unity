@@ -810,6 +810,10 @@ PrefabInstance:
       propertyPath: AttackButton
       value: 
       objectReference: {fileID: 1244186033}
+    - target: {fileID: 1802425874459759712, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
+      propertyPath: EnemyLayerMask.m_Bits
+      value: 128
+      objectReference: {fileID: 0}
     - target: {fileID: 1802425874459759718, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -922,6 +926,10 @@ PrefabInstance:
     - target: {fileID: 5616230827307175986, guid: ed85347fb2ac31341880103381bb532a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5616230827307175987, guid: ed85347fb2ac31341880103381bb532a, type: 3}
+      propertyPath: _attackRadius
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: 5616230827307175990, guid: ed85347fb2ac31341880103381bb532a, type: 3}
       propertyPath: m_Name
