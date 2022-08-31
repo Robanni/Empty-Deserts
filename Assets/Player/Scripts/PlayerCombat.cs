@@ -18,11 +18,6 @@ public class PlayerCombat : MonoBehaviour, ICombat
         AttackButton.ButtonClickedEvent += Attack;
     }
 
-    void Update()
-    {
-        
-    }
-
     public void Attack()
     {
         Collider2D[] attackedEntities = Physics2D.OverlapCircleAll(AttackPoint.position, _attackRadius, EnemyLayerMask);
@@ -37,7 +32,7 @@ public class PlayerCombat : MonoBehaviour, ICombat
     {
         _health -= damage;
 
-        if (_health < 0) _health = 0;
+        if (_health <= 0) Destroy(gameObject);
     }
 
     public int Health { get { return _health; } }
