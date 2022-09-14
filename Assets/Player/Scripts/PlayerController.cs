@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
+    private bool _isGrounded = false;
     private float _speed = 4f;
     private float _jumpForce = 35f;
     private Rigidbody2D _playerRidgiedBody;
@@ -40,6 +41,21 @@ public class PlayerController : MonoBehaviour
         _playerAnimator.SetTrigger("IsJumping");
     }
 
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (!_isGrounded) 
+            {
+                _playerAnimator.SetTrigger("IsGrounded");
+                _isGrounded = true;
+            }
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if(collision.gameObject.CompareTag("Ground")) _isGrounded = false;
+    }
     private void PlayerFlip(float diractionOfFlip)
     {
 

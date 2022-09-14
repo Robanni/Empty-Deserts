@@ -4,13 +4,19 @@ using UnityEngine;
 
 public class SimpleEnemy : BaseEnemy
 {
-    // Start is called before the first frame update
+    
     void Start()
     {
         _enemyTarget = FindObjectOfType<PlayerController>().transform;
+        _enemyRB = GetComponent<Rigidbody2D>();
     }
 
-    // Update is called once per frame
+    private void Update()
+    {
+        Attack();
+    }
+
+    
     void FixedUpdate()
     {
         EnemyMovement();
