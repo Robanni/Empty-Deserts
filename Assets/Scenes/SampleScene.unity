@@ -1046,9 +1046,41 @@ PrefabInstance:
       propertyPath: AttackButton
       value: 
       objectReference: {fileID: 1244186033}
+    - target: {fileID: 1802425874459759716, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802425874459759717, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802425874459759717, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
+      propertyPath: m_Color.b
+      value: 0.99433964
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802425874459759717, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
+      propertyPath: m_Color.g
+      value: 0.99433964
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802425874459759717, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802425874459759717, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
+      propertyPath: m_DrawMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802425874459759717, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
+      propertyPath: m_SpriteSortPoint
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1802425874459759718, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1802425874459759718, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 1.7500001
       objectReference: {fileID: 0}
     - target: {fileID: 1802425874459759718, guid: 0afd179ffd611a14b83a7afe59e7434a, type: 3}
       propertyPath: m_LocalPosition.x

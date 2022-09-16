@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerCombat : MonoBehaviour, ICombat
 {
+    private Animator _playerAnimator;
+
     private int _health = 1;
     private int _attackDamage = 1;
     private float _attackRadius = 1;
@@ -15,17 +17,26 @@ public class PlayerCombat : MonoBehaviour, ICombat
     
     void Start()
     {
-        AttackButton.ButtonClickedEvent += Attack;
+        AttackButton.TimerButtonClickedEvent += PlayAttackAnimation;
+        _playerAnimator = GetComponent<Animator>();
     }
 
     public void Attack()
     {
+        
         Collider2D[] attackedEntities = Physics2D.OverlapCircleAll(AttackPoint.position, _attackRadius, EnemyLayerMask);
 
         foreach (Collider2D attackedEntity in attackedEntities)
         {
             attackedEntity.GetComponent<ICombat>().TakeDamage(_attackDamage);
         }
+        
+    }
+    private IEnumerator  PlayAttackAnimation()
+    {
+        _playerAnimator.SetTrigger("IsAttacking");
+        yield return new WaitForSecondsRealtime(0.18f);
+        Attack();
     }
 
     public void TakeDamage(int damage)

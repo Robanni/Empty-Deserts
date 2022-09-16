@@ -8,8 +8,14 @@ public class Button : MonoBehaviour,  IPointerClickHandler
 {
     public delegate void ButtonClicked();
     public event ButtonClicked ButtonClickedEvent;
+
+    public delegate IEnumerator TimerButtonClicked();
+    public event TimerButtonClicked TimerButtonClickedEvent;
+    
     public void OnPointerClick(PointerEventData eventData)
     {
         ButtonClickedEvent?.Invoke();
+        if(TimerButtonClickedEvent != null)
+        StartCoroutine(TimerButtonClickedEvent?.Invoke());
     }
 }
