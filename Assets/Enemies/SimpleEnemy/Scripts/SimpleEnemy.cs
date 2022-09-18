@@ -9,13 +9,8 @@ public class SimpleEnemy : BaseEnemy
     {
         _enemyTarget = FindObjectOfType<PlayerController>().transform;
         _enemyRB = GetComponent<Rigidbody2D>();
+        StartCoroutine(AttackReload());
     }
-
-    private void Update()
-    {
-        Attack();
-    }
-
     
     void FixedUpdate()
     {

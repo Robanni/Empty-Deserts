@@ -9,6 +9,7 @@ public class PlayerCombat : MonoBehaviour, ICombat
     private int _health = 1;
     private int _attackDamage = 1;
     private float _attackRadius = 1;
+    private bool _isDead = false;
     
 
     public Transform AttackPoint;    
@@ -21,6 +22,10 @@ public class PlayerCombat : MonoBehaviour, ICombat
         _playerAnimator = GetComponent<Animator>();
     }
 
+    private void Update()
+    {
+        PlayDeath();
+    }
     public void Attack()
     {
         
@@ -43,8 +48,16 @@ public class PlayerCombat : MonoBehaviour, ICombat
     {
         _health -= damage;
 
-        if (_health <= 0) Destroy(gameObject);
+        if (_health <= 0) _isDead = true;
     }
 
+    private void PlayDeath()
+    {
+        if (_isDead)
+        {
+            _playerAnimator.SetTrigger("IsDead");
+            Time.timeScale = 0;
+        }
+    }
     public int Health { get { return _health; } }
 }

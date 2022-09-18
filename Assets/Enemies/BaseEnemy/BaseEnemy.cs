@@ -9,6 +9,7 @@ public class BaseEnemy : MonoBehaviour, ICombat
     [SerializeField] protected float _speed = 10f;
     [SerializeField] protected float _attackRadius = 1;
     protected int _attackDamage = 1;
+    protected float _attackReload = 1f;
     protected Rigidbody2D _enemyRB;
 
     public Transform AttackPoint;
@@ -26,6 +27,14 @@ public class BaseEnemy : MonoBehaviour, ICombat
         }
     }
 
+    protected IEnumerator AttackReload()
+    {
+        while (true)
+        {
+            Attack();
+            yield return new WaitForSeconds(_attackReload);
+        }
+    }
     public void TakeDamage(int damage)
     {
         _health -= damage;
