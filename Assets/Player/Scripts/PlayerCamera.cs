@@ -7,6 +7,7 @@ public class PlayerCamera : MonoBehaviour
     private Transform _playerTransform;
     void Start()
     {
+        Time.timeScale = 1;
         _playerTransform = FindObjectOfType<PlayerController>().transform;
     }
 

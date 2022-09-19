@@ -60,4 +60,5 @@ public class PlayerCombat : MonoBehaviour, ICombat
         }
     }
     public int Health { get { return _health; } }
+    public bool IsDead { get { return _isDead; } }
 }
